@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route} from "react-router-dom";
+import Layout from "./Components/Layout";
 import HomePage from "./Components/HomePage";
 import CharacterList from "./Components/CharacterList";
 import PlanetList from "./Components/PlanetList";
@@ -12,13 +13,11 @@ import NoPage from ".Components/NoPage";
 import './index.css';
 
 
-
-
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route>
+        <Route path="/" element={<Layout/>}>
           <Route index element={<HomePage />} />
           <Route path="Characters" element={<CharacterList />} />
           <Route path="Planets" element={<PlanetList />} />
