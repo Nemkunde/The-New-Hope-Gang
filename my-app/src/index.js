@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route} from "react-router-dom";
-import HomePage from "./Components/HomePage";
-import CharacterList from "./Components/CharacterList";
-import PlanetList from "./Components/PlanetList";
-import SpeciesList from "./Components/SpeciesList";
-import StarshipList from "./Components/StarshipList";
-import TitleList from "./Components/TitleList";
-import VehicleList from "./Components/VehicleList";
-import NoPage from ".Components/NoPage";
+import HomePage from "./components/HomePage";
+import CharacterList from "./components/CharacterList";
+import PlanetList from "./components/PlanetList";
+import SpeciesList from "./components/SpeciesList";
+import StarshipList from "./components/StarshipList";
+import TitleList from "./components/TitleList";
+import VehicleList from "./components/VehicleList";
+import NoPage from ".components/NoPage";
 import './index.css';
 
 
