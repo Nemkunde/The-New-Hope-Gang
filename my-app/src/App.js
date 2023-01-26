@@ -1,7 +1,6 @@
-import './App.css';
 import { Link, Routes, Route} from "react-router-dom";
-import HomePage from './pages/HomePage';
-import Layout from './pages/Layout';
+import HomePage from "./pages/HomePage";
+import Layout from "./pages/Layout";
 import CharacterList from "./pages/CharacterList";
 import PlanetList from "./pages/PlanetList";
 import SpeciesList from "./pages/SpeciesList";
