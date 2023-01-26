@@ -15,7 +15,7 @@ const Layout = () => {
                     <Link to= "/PlanetList">Planets</Link>
                 </li>
                 <li>
-                    <Link to="/SpeciesList">Species</Link>
+                    <Link to="/SpecieList">Species</Link>
                 </li>
                 <li>
                     <Link to="/StarshipList">Starships</Link>
