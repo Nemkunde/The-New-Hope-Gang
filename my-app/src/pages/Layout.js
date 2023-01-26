@@ -3,25 +3,18 @@ import React from 'react'
 const Layout = () => {
     return (
         <>
-        <nav>
-            <ul>
-                <li>
-                    <Link to="/">HomePage</Link>
-                </li>
-                <li>
-                    <Link to="/CharacterList">Characters</Link>
-                </li>  
-                <li>
-                    <Link to="NoPage"></Link>
-                </li>
-            </ul>
-        </nav>
-
-    <Outlet />
-
-    </>
-
-
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/">HomePage</Link>
+                    </li>
+                    <li>
+                        <Link to="/CharacterList">Characters</Link>
+                    </li>
+                </ul>
+            </nav>
+            <Outlet />
+        </>
     )
 };
 
