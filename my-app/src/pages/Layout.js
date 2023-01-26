@@ -12,7 +12,19 @@ const Layout = () => {
                     <Link to="/CharacterList">Characters</Link>
                 </li>  
                 <li>
-                    <Link to="NoPage"></Link>
+                    <Link to= "/PlanetList">Planets</Link>
+                </li>
+                <li>
+                    <Link to="/SpeciesList">Species</Link>
+                </li>
+                <li>
+                    <Link to="/StarshipList">Starships</Link>
+                </li>
+                <li>
+                    <Link to= "/TitleList">Titles</Link>
+                </li>
+                <li>
+                    <Link to="/VehicleList">Vehicles</Link>
                 </li>
             </ul>
         </nav>
