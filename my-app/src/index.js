@@ -9,11 +9,9 @@ import SpeciesList from "./components/SpeciesList";
 import StarshipList from "./components/StarshipList";
 import TitleList from "./components/TitleList";
 import VehicleList from "./components/VehicleList";
-import NoPage from ".components/NoPage";
-import './index.css';
 
 
-export default function App() {
+export default function anka() {
   return (
     <BrowserRouter>
       <Routes>
@@ -25,7 +23,6 @@ export default function App() {
           <Route path="Starships" element={<StarshipList />} />
           <Route path="Titles" element={<TitleList />} />
           <Route path="Vehicles" element={<VehicleList />} />
-          <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
