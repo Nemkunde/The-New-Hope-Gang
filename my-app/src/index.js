@@ -9,7 +9,7 @@ import SpeciesList from "./components/SpeciesList";
 import StarshipList from "./components/StarshipList";
 import TitleList from "./components/TitleList";
 import VehicleList from "./components/VehicleList";
-
+import App from './App';
 
 export default function anka() {
   return (
