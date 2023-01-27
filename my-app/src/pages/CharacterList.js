@@ -51,8 +51,8 @@ const CharacterList = () => {
             <br />
             <Link to={"/CharacterList/" + charNamesList[tableNum+4]}>{charNamesList[tableNum+4]}</Link>
             <br />
-            <button onClick={NextPage}>prev</button>
-            <button onClick={PrevPage}>next</button>
+            <button onClick={PrevPage}>prev</button>
+            <button onClick={NextPage}>next</button>
             <br />
             <br />
             <Link to="../">Back</Link>
