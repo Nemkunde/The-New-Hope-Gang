@@ -1,5 +1,6 @@
 import React from 'react'
 const HomePage = () => {
+
     return <>
         <h1>Home</h1><p>Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim
         labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi
