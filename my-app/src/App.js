@@ -5,6 +5,7 @@ import Layout from "./pages/Layout";
 import CharacterList from "./pages/CharacterList";
 import Characters from "./pages/Characters";
 import PlanetList from "./pages/PlanetList";
+import Planets from "./pages/Planets";
 import SpeciesList from "./pages/SpeciesList";
 import StarshipList from "./pages/StarshipList";
 import TitleList from "./pages/TitleList";
@@ -19,7 +20,8 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="CharacterList" element={<CharacterList />} />
           <Route path="CharacterList/:id" element={<Characters />} />
-          <Route path="PlanetsList" element={<PlanetList />} />
+          <Route path="PlanetList" element={<PlanetList />} />
+          <Route path="PlanetList/:id" element={<Planets />} />
           <Route path="SpeciesList" element={<SpeciesList />} />
           <Route path="StarshipsList" element={<StarshipList />} />
           <Route path="TitlesList" element={<TitleList />} />
