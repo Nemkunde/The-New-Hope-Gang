@@ -16,7 +16,6 @@ export default function Characters(){
             eye_color = json.eye_color;
             birth_year = json.birth_year;
             gender = json.gender;
-            eye = json.eye_color;
             fetch(json.homeworld)
                 .then(responseH => responseH.json())
                 .then(jsonH => {
@@ -82,6 +81,9 @@ export default function Characters(){
             </li>
             <li>
                 <p>Gravity: {gravity}</p>
+            </li>
+            <li>
+                <p>Population: {population}</p>
             </li>
         </ul>
         <Link to="../CharacterList">Back</Link>
