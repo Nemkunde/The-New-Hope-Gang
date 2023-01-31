@@ -1,50 +1,53 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-let names, classification, designation, average_height, skin_colors, hair_colors, eye_colors, average_lifespan, language;
-export default function Characters(){
-    const { id } = useParams();
-    fetch('https://swapi.dev/api/species/' + id)
-        .then(response => response.json())
-        .then(json => {
-            names = json.name;
-            classification = json.classification;
-            designation = json.designation;
-            average_height = json.average_height;
-            skin_colors = json.skin_colors; 
-            hair_colors = json.hair_colors;
-            eye_colors = json.eye_colors;
-            average_lifespan = json.average_lifespan;
-            language = json.language;
-    })
+
+export default function Species() {
+  const [species, setSpecies] = useState({});
+  const { id } = useParams();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`https://swapi.dev/api/species/${id}`);
+        const data = await response.json();
+        setSpecies(data);
+        console.log(data)
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, [id]);
+
     return (
         <>
         <ul>
             <li>
-                <p>Name: {names}</p>
+                <p>Name: {species.name}</p>
             </li>
             <li>
-                <p>Classification: {classification}</p>
+                <p>Classification: {species.classification}</p>
             </li>
             <li>
-                <p>Designation: {designation}</p>
+                <p>Designation: {species.designation}</p>
             </li>
             <li>
-                <p>Average height: {average_height}</p>
+                <p>Average height: {species.average_height}</p>
             </li>
             <li>
-                <p>Skin colors: {skin_colors}</p>
+                <p>Skin colors: {species.skin_colors}</p>
             </li>
             <li>
-                <p>Hair colors: {hair_colors}</p>
+                <p>Hair colors: {species.hair_colors}</p>
             </li>
             <li>
-                <p>Eye colors: {eye_colors}</p>
+                <p>Eye colors: {species.eye_colors}</p>
             </li>
             <li>
-                <p>Average lifespan: {average_lifespan}</p>
+                <p>Average lifespan: {species.average_lifespan}</p>
             </li>
             <li>
-                <p>Language: {language}</p>
+                <p>Language: {species.language}</p>
             </li>
         </ul>
         <Link to="../SpeciesList">Back</Link>

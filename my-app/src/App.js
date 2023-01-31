@@ -10,8 +10,10 @@ import SpeciesList from "./pages/SpeciesList";
 import Species from "./pages/Species";
 import StarshipList from "./pages/StarshipList";
 import Starships from "./pages/Starships";
-import TitleList from "./pages/TitleList";
+import FilmList from "./pages/FilmList";
+import Films from "./pages/Films";
 import VehicleList from "./pages/VehicleList";
+import Vehicles from "./pages/Vehicles";
 import Notfound from './pages/Notfound';
 
 function App() {
@@ -28,8 +30,10 @@ function App() {
           <Route path="SpeciesList/:id" element={<Species />} />
           <Route path="StarshipList" element={<StarshipList />} />
           <Route path="StarshipList/id" element={<Starships />} />
-          <Route path="TitlesList" element={<TitleList />} />
-          <Route path="VehiclesList" element={<VehicleList />} />
+          <Route path="FilmList" element={<FilmList />} />
+          <Route path="FilmList/:id" element={<Films />} />
+          <Route path="VehicleList" element={<VehicleList />} />
+          <Route path="VehicleList/:id" element={<Vehicles />} />
           <Route path="*" element={<Notfound />} />
         </Route>
       </Routes>

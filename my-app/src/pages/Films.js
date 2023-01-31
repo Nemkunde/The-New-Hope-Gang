@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-export default function Planets() {
-  const [planet, setPlanet] = useState({});
+export default function Films() {
+  const [film, setFilm] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://swapi.dev/api/planets/${id}`);
+        const response = await fetch(`https://swapi.dev/api/films/${id}`);
         const data = await response.json();
-        setPlanet(data);
+        setFilm(data);
         console.log(data)
       } catch (error) {
         console.error(error);
@@ -23,31 +23,28 @@ export default function Planets() {
         <>
         <ul>
             <li>
-                <p>Name: {planet.name}</p>
+                <p>Title: {film.title}</p>
             </li>
             <li>
-                <p>Rotation period: {planet.rotation_period}</p>
+                <p>Episode id: {film.episode_id}</p>
             </li>
             <li>
-                <p>Orbital period: {planet.orbital_period}</p>
+                <p>Opening crawl: {film.opening_crawl}</p>
             </li>
             <li>
-                <p>Diameter: {planet.diameter}</p>
+                <p>Director: {film.director}</p>
             </li>
             <li>
-                <p>Climate: {planet.climate}</p>
+                <p>Producer: {film.producer}</p>
             </li>
             <li>
-                <p>Gravity: {planet.gravity}</p>
+                <p>Created: {film.created}</p>
             </li>
             <li>
-                <p>Terrain: {planet.terrain}</p>
-            </li>
-            <li>
-                <p>Population: {planet.population}</p>
+                <p>Release date: {film.release_date}</p>
             </li>
         </ul>
-        <Link to="../PlanetList">Back</Link>
+        <Link to="../FilmList">Back</Link>
         </>
     );
 };
