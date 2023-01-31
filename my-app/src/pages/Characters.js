@@ -12,7 +12,6 @@ export default function Characters() {
         const response = await fetch(`https://swapi.dev/api/people/${id}`);
         const data = await response.json();
         setCharacter(data);
-        console.log(data)
         const planetResponse = await fetch(data.homeworld);
         const planetData = await planetResponse.json();
         setPlanet(planetData);

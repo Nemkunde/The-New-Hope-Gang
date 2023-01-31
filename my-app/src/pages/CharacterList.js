@@ -1,8 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+const getFilterCharacterList = (searchData, characterList) =>{
+    if (!searchData){
+        return characterList;
+    }
+    return characterList.filter((character) => character.toLowerCase().includes(searchData.toLowerCase()));
+}
+
 export default function CharactersList() {
+
     const [characterList, setCharacterList] = useState([]);
+    const [searchData, setSearchData] = useState('')
+
     let listname = [];
+    //shouldComponentUpdate()
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -18,40 +30,26 @@ export default function CharactersList() {
         };
         fetchData();
     }, []);
+
+
+    const filterCharacterList = getFilterCharacterList(searchData, characterList)
+
     return (
         <>
             <h1>Characters</h1>
+            <input 
+            type="text" 
+            placeholder="Search..." 
+            className="search" 
+            value={searchData} 
+            onChange={(e) => setSearchData(e.target.value)}
+            />
             <ul>
-                <li>
-                    <Link to="/CharacterList/1">{characterList[0]}</Link>
+            {filterCharacterList.map((name, id) => (
+                <li key={id}>
+                    <Link to={`/CharacterList/${id + 1}`}>{name}</Link>
                 </li>
-                <li>
-                    <Link to="/CharacterList/2">{characterList[1]}</Link>
-                </li>
-                <li>
-                    <Link to="/CharacterList/3">{characterList[2]}</Link>
-                </li>
-                <li>
-                    <Link to="/CharacterList/4">{characterList[3]}</Link>
-                </li>
-                <li>
-                    <Link to="/CharacterList/5">{characterList[4]}</Link>
-                </li>
-                <li>
-                    <Link to="/CharacterList/6">{characterList[5]}</Link>
-                </li>
-                <li>
-                    <Link to="/CharacterList/7">{characterList[6]}</Link>
-                </li>
-                <li>
-                    <Link to="/CharacterList/8">{characterList[7]}</Link>
-                </li>
-                <li>
-                    <Link to="/CharacterList/9">{characterList[8]}</Link>
-                </li>
-                <li>
-                    <Link to="/CharacterList/10">{characterList[7]}</Link>
-                </li>
+            ))}
             </ul>
             <Link to="../">Back</Link>
         </>
