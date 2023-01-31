@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const getFilterCharacterList = (searchData, characterList) =>{
-    if (!searchData){
+const getFilterList = (searchData, characterList) =>{
+    if (!searchData){ 
         return characterList;
     }
     return characterList.filter((character) => character.toLowerCase().includes(searchData.toLowerCase()));
@@ -10,11 +10,11 @@ const getFilterCharacterList = (searchData, characterList) =>{
 
 export default function CharactersList() {
 
-    const [characterList, setCharacterList] = useState([]);
+    
     const [searchData, setSearchData] = useState('')
+    const [characterList, setCharacterList] = useState([]);
 
     let listname = [];
-    //shouldComponentUpdate()
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -31,9 +31,7 @@ export default function CharactersList() {
         fetchData();
     }, []);
 
-
-    const filterCharacterList = getFilterCharacterList(searchData, characterList)
-
+    const filterList = getFilterList(searchData, characterList)
     return (
         <>
             <h1>Characters</h1>
@@ -45,11 +43,14 @@ export default function CharactersList() {
             onChange={(e) => setSearchData(e.target.value)}
             />
             <ul>
-            {filterCharacterList.map((name, id) => (
-                <li key={id}>
-                    <Link to={`/CharacterList/${id + 1}`}>{name}</Link>
-                </li>
-            ))}
+            {filterList.map((name, id) => {
+                
+                return (
+                    <li key={id}>
+                        <Link to={`/CharacterList/${name}`}>{name}</Link>
+                    </li>
+                );
+            })}
             </ul>
             <Link to="../">Back</Link>
         </>

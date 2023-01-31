@@ -24,31 +24,31 @@ export default function VehicleList() {
             <h1>Vehicles</h1>
             <ul>
                 <li>
-                    <Link to="/VehicleList/1">{vehicleList[0]}</Link>
+                    <Link to="/VehicleList/4">{vehicleList[0]}</Link>
                 </li>
                 <li>
-                    <Link to="/VehicleList/2">{vehicleList[1]}</Link>
+                    <Link to="/VehicleList/6">{vehicleList[1]}</Link>
                 </li>
                 <li>
-                    <Link to="/VehicleList/3">{vehicleList[2]}</Link>
+                    <Link to="/VehicleList/7">{vehicleList[2]}</Link>
                 </li>
                 <li>
-                    <Link to="/VehicleList/4">{vehicleList[3]}</Link>
+                    <Link to="/VehicleList/8">{vehicleList[3]}</Link>
                 </li>
                 <li>
-                    <Link to="/VehicleList/5">{vehicleList[4]}</Link>
+                    <Link to="/VehicleList/14">{vehicleList[4]}</Link>
                 </li>
                 <li>
-                    <Link to="/VehicleList/6">{vehicleList[5]}</Link>
+                    <Link to="/VehicleList/16">{vehicleList[5]}</Link>
                 </li>
                 <li>
-                    <Link to="/VehicleList/7">{vehicleList[6]}</Link>
+                    <Link to="/VehicleList/18">{vehicleList[6]}</Link>
                 </li>
                 <li>
-                    <Link to="/VehicleList/8">{vehicleList[7]}</Link>
+                    <Link to="/VehicleList/19">{vehicleList[7]}</Link>
                 </li>
                 <li>
-                    <Link to="/VehicleList/9">{vehicleList[8]}</Link>
+                    <Link to="/VehicleList/24">{vehicleList[8]}</Link>
                 </li>
 
             </ul>

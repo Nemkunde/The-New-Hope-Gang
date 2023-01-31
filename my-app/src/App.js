@@ -23,7 +23,7 @@ function App() {
         <Route path="/" element={<Layout />} >
           <Route index element={<HomePage />} />
           <Route path="CharacterList" element={<CharacterList />} />
-          <Route path="CharacterList/:id" element={<Characters />} />
+          <Route path="CharacterList/:name" element={<Characters />} />
           <Route path="PlanetList" element={<PlanetList />} />
           <Route path="PlanetList/:id" element={<Planets />} />
           <Route path="SpeciesList" element={<SpeciesList />} />

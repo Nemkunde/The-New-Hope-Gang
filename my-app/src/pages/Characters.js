@@ -2,17 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 export default function Characters() {
-  const [character, setCharacter] = useState({});
+  const [character, setCharacter] = useState([]);
   const [planet, setPlanet] = useState({});
-  const { id } = useParams();
-
+  const { name } = useParams();
+  let list = []
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://swapi.dev/api/people/${id}`);
+        const response = await fetch(`https://swapi.dev/api/people/?search=${name}`);
         const data = await response.json();
-        setCharacter(data);
-        const planetResponse = await fetch(data.homeworld);
+        list = data.results
+        setCharacter(list[0]);
+        //console.log(list[0])
+        const planetResponse = await fetch(list[0].homeworld);
         const planetData = await planetResponse.json();
         setPlanet(planetData);
       } catch (error) {
@@ -20,8 +22,7 @@ export default function Characters() {
       }
     };
     fetchData();
-  }, [id]);
-
+  }, [name]);
   return (
     <>
       <ul>
