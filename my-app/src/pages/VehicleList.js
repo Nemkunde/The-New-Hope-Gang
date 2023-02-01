@@ -19,6 +19,7 @@ export default function VehicleList() {
                 const response = await fetch('https://swapi.dev/api/vehicles/');
                 const data = await response.json();
                 for (let i = 0; i < 10; i++) {
+                    if (i != 3)
                     listname[i] = data.results[i].name;
                 }
                 setVehicleList(listname)
@@ -41,7 +42,6 @@ export default function VehicleList() {
             />
             <ul>
             {filterList.map((name, id) => {
-                
                 return (
                     <li key={id}>
                         <Link to={`/VehicleList/${name}`}>{name}</Link>

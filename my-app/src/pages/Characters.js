@@ -36,6 +36,21 @@ export default function Characters() {
           <p>Eye color: {character.eye_color}</p>
         </li>
         <li>
+          <p>Hair color: {character.hair_color}</p>
+        </li>
+        <li>
+          <p>Skin color: {character.skin_color}</p>
+        </li>
+        <li>
+          <p>Gender: {character.gender}</p>
+        </li>
+        <li>
+          <p>Height: {character.height}</p>
+        </li>
+        <li>
+          <p>Mass: {character.mass}</p>
+        </li>
+        <li>
           <h2>Home planet: {planet.name}</h2>
         </li>
         <li>
