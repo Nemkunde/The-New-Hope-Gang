@@ -3,21 +3,23 @@ import { Link, useParams } from 'react-router-dom';
 
 export default function Vehicles() {
   const [vehicle, setVehicles] = useState({});
-  const { id } = useParams();
+  const {name } = useParams();
+  let list = []
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://swapi.dev/api/vehicles/${id}`);
+        const response = await fetch(`https://swapi.dev/api/vehicles/?search=${name}`);
         const data = await response.json();
-        setVehicles(data);
+        list = data.results
+        setVehicles(list[0]);
         console.log(data)
       } catch (error) {
         console.error(error);
       }
     };
     fetchData();
-  }, [id]);
+  }, [name]);
 
     return (
         <>

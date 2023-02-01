@@ -3,21 +3,22 @@ import { Link, useParams } from 'react-router-dom';
 
 export default function Species() {
   const [species, setSpecies] = useState({});
-  const { id } = useParams();
-
+  const { name } = useParams();
+  let list = []
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://swapi.dev/api/species/${id}`);
+        const response = await fetch(`https://swapi.dev/api/species/?search=${name}`);
         const data = await response.json();
-        setSpecies(data);
+        list = data.results
+        setSpecies(list[0]);
         console.log(data)
       } catch (error) {
         console.error(error);
       }
     };
     fetchData();
-  }, [id]);
+  }, [name]);
 
     return (
         <>

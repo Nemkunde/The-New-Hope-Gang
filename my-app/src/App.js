@@ -25,15 +25,15 @@ function App() {
           <Route path="CharacterList" element={<CharacterList />} />
           <Route path="CharacterList/:name" element={<Characters />} />
           <Route path="PlanetList" element={<PlanetList />} />
-          <Route path="PlanetList/:id" element={<Planets />} />
+          <Route path="PlanetList/:name" element={<Planets />} />
           <Route path="SpeciesList" element={<SpeciesList />} />
-          <Route path="SpeciesList/:id" element={<Species />} />
+          <Route path="SpeciesList/:name" element={<Species />} />
           <Route path="StarshipList" element={<StarshipList />} />
-          <Route path="StarshipList/id" element={<Starships />} />
+          <Route path="StarshipList/name" element={<Starships />} />
           <Route path="FilmList" element={<FilmList />} />
-          <Route path="FilmList/:id" element={<Films />} />
+          <Route path="FilmList/:title" element={<Films />} />
           <Route path="VehicleList" element={<VehicleList />} />
-          <Route path="VehicleList/:id" element={<Vehicles />} />
+          <Route path="VehicleList/:name" element={<Vehicles />} />
           <Route path="*" element={<Notfound />} />
         </Route>
       </Routes>

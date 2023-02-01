@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+const getFilterList = (searchData, speciesList) =>{
+    if (!searchData){ 
+        return speciesList;
+    }
+    return speciesList.filter((species) => species.toLowerCase().includes(searchData.toLowerCase()));
+}
+
 export default function SpeciesList() {
+    const[searchData, setSearchData] = useState('')
     const [speciesList, setSpeciesList] = useState([]);
     let listname = [];
     useEffect(() => {
@@ -19,40 +27,27 @@ export default function SpeciesList() {
         };
         fetchData();
     }, []);
+
+    const filterList = getFilterList(searchData, speciesList)
     return (
         <>
             <h1>Species</h1>
+            <input 
+            type="text" 
+            placeholder="Search..." 
+            className="search" 
+            value={searchData} 
+            onChange={(e) => setSearchData(e.target.value)}
+            />
             <ul>
-                <li>
-                    <Link to="/SpeciesList/1">{speciesList[0]}</Link>
-                </li>
-                <li>
-                    <Link to="/SpeciesList/2">{speciesList[1]}</Link>
-                </li>
-                <li>
-                    <Link to="/SpeciesList/3">{speciesList[2]}</Link>
-                </li>
-                <li>
-                    <Link to="/SpeciesList/4">{speciesList[3]}</Link>
-                </li>
-                <li>
-                    <Link to="/SpeciesList/5">{speciesList[4]}</Link>
-                </li>
-                <li>
-                    <Link to="/SpeciesList/6">{speciesList[5]}</Link>
-                </li>
-                <li>
-                    <Link to="/SpeciesList/7">{speciesList[6]}</Link>
-                </li>
-                <li>
-                    <Link to="/SpeciesList/8">{speciesList[7]}</Link>
-                </li>
-                <li>
-                    <Link to="/SpeciesList/9">{speciesList[8]}</Link>
-                </li>
-                <li>
-                    <Link to="/SpeciesList/10">{speciesList[9]}</Link>
-                </li>
+            {filterList.map((name, id) => {
+                
+                return (
+                    <li key={id}>
+                        <Link to={`/SpeciesList/${name}`}>{name}</Link>
+                    </li>
+                );
+            })}
             </ul>
             <Link to="../">Back</Link>
         </>

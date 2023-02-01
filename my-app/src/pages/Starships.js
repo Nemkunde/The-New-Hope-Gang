@@ -3,21 +3,22 @@ import { Link, useParams } from 'react-router-dom';
 
 export default function Starships() {
   const [starship, setStarships] = useState({});
-  const { id } = useParams();
-
+  const { name} = useParams();
+  let list = []
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://swapi.dev/api/starships/${id}`);
+        const response = await fetch(`https://swapi.dev/api/starships/?search=${name}`);
         const data = await response.json();
-        setStarships(data);
+        list = data.results
+        setStarships(list[0]);
         console.log(data)
       } catch (error) {
         console.error(error);
       }
     };
     fetchData();
-  }, [id]);
+  }, [name]);
 
     return (
         <>

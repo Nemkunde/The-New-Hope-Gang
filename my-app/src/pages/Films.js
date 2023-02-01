@@ -2,22 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 export default function Films() {
-  const [film, setFilm] = useState({});
-  const { id } = useParams();
-
+  const [film, setFilm] = useState([]);
+  const { title } = useParams();
+  let list = []
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://swapi.dev/api/films/${id}`);
+        const response = await fetch(`https://swapi.dev/api/films/?search=${title}`);
         const data = await response.json();
-        setFilm(data);
+        list = data.results
+        setFilm(list[0]);
         console.log(data)
       } catch (error) {
         console.error(error);
       }
     };
     fetchData();
-  }, [id]);
+  }, [title]);
 
     return (
         <>

@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+const getFilterList = (searchData, vehicleList) =>{
+    if (!searchData){ 
+        return vehicleList;
+    }
+    return vehicleList.filter((vehicle) => vehicle.toLowerCase().includes(searchData.toLowerCase()));
+}
+
+
 export default function VehicleList() {
+    const[searchData, setSearchData] = useState('')
     const [vehicleList, setVehicleList] = useState([]);
     let listname = [];
     useEffect(() => {
@@ -19,38 +28,26 @@ export default function VehicleList() {
         };
         fetchData();
     }, []);
+    const filterList = getFilterList(searchData, vehicleList)
     return (
         <>
             <h1>Vehicles</h1>
+            <input 
+            type="text" 
+            placeholder="Search..." 
+            className="search" 
+            value={searchData} 
+            onChange={(e) => setSearchData(e.target.value)}
+            />
             <ul>
-                <li>
-                    <Link to="/VehicleList/4">{vehicleList[0]}</Link>
-                </li>
-                <li>
-                    <Link to="/VehicleList/6">{vehicleList[1]}</Link>
-                </li>
-                <li>
-                    <Link to="/VehicleList/7">{vehicleList[2]}</Link>
-                </li>
-                <li>
-                    <Link to="/VehicleList/8">{vehicleList[3]}</Link>
-                </li>
-                <li>
-                    <Link to="/VehicleList/14">{vehicleList[4]}</Link>
-                </li>
-                <li>
-                    <Link to="/VehicleList/16">{vehicleList[5]}</Link>
-                </li>
-                <li>
-                    <Link to="/VehicleList/18">{vehicleList[6]}</Link>
-                </li>
-                <li>
-                    <Link to="/VehicleList/19">{vehicleList[7]}</Link>
-                </li>
-                <li>
-                    <Link to="/VehicleList/24">{vehicleList[8]}</Link>
-                </li>
-
+            {filterList.map((name, id) => {
+                
+                return (
+                    <li key={id}>
+                        <Link to={`/VehicleList/${name}`}>{name}</Link>
+                    </li>
+                );
+            })}
             </ul>
             <Link to="../">Back</Link>
         </>

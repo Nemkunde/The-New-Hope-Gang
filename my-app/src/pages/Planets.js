@@ -3,21 +3,22 @@ import { Link, useParams } from 'react-router-dom';
 
 export default function Planets() {
   const [planet, setPlanet] = useState({});
-  const { id } = useParams();
-
+  const { name } = useParams();
+  let list = []
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://swapi.dev/api/planets/${id}`);
+        const response = await fetch(`https://swapi.dev/api/planets/?search=${name}`);
         const data = await response.json();
-        setPlanet(data);
+        list = data.results
+        setPlanet(list[0]);
         console.log(data)
       } catch (error) {
         console.error(error);
       }
     };
     fetchData();
-  }, [id]);
+  }, [name]);
 
     return (
         <>

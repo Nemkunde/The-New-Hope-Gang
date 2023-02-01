@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+const getFilterList = (searchData, starshipList) =>{
+    if (!searchData){ 
+        return starshipList;
+    }
+    return starshipList.filter((starship) => starship.toLowerCase().includes(searchData.toLowerCase()));
+}
+
 export default function StarshipList() {
+    const[searchData, setSearchData] = useState('')
     const [starshipList, setStarshipList] = useState([]);
     let listname = [];
     useEffect(() => {
@@ -19,40 +27,26 @@ export default function StarshipList() {
         };
         fetchData();
     }, []);
+    const filterList = getFilterList(searchData, starshipList)
     return (
         <>
             <h1>Starships</h1>
+            <input 
+            type="text" 
+            placeholder="Search..." 
+            className="search" 
+            value={searchData} 
+            onChange={(e) => setSearchData(e.target.value)}
+            />
             <ul>
-                <li>
-                    <Link to="/StarshipList/1">{starshipList[0]}</Link>
-                </li>
-                <li>
-                    <Link to="/StarshipList/2">{starshipList[1]}</Link>
-                </li>
-                <li>
-                    <Link to="/StarshipList/3">{starshipList[2]}</Link>
-                </li>
-                <li>
-                    <Link to="/StarshipList/4">{starshipList[3]}</Link>
-                </li>
-                <li>
-                    <Link to="/StarshipList/5">{starshipList[4]}</Link>
-                </li>
-                <li>
-                    <Link to="/StarshipList/6">{starshipList[5]}</Link>
-                </li>
-                <li>
-                    <Link to="/StarshipList/7">{starshipList[6]}</Link>
-                </li>
-                <li>
-                    <Link to="/StarshipList/8">{starshipList[7]}</Link>
-                </li>
-                <li>
-                    <Link to="/StarshipList/9">{starshipList[8]}</Link>
-                </li>
-                <li>
-                    <Link to="/StarshipList/10">{starshipList[9]}</Link>
-                </li>
+            {filterList.map((name, id) => {
+                
+                return (
+                    <li key={id}>
+                        <Link to={`/StarshipList/${name}`}>{name}</Link>
+                    </li>
+                );
+            })}
             </ul>
             <Link to="../">Back</Link>
         </>
