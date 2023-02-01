@@ -11,6 +11,7 @@ const getFilterList = (searchData, planetList) =>{
 export default function PlanetList() {
     const[searchData, setSearchData] = useState('')
     const [planetList, setPlanetList] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     let listname = [];
     useEffect(() => {
         const fetchData = async () => {
@@ -20,7 +21,8 @@ export default function PlanetList() {
                 for (let i = 0; i < 10; i++) {
                     listname[i] = data.results[i].name;
                 }
-                setPlanetList(listname)
+                setPlanetList(listname);
+                setIsLoading(false);
             } catch(error){
                 console.error(error);
             }
@@ -39,16 +41,17 @@ export default function PlanetList() {
             value={searchData} 
             onChange={(e) => setSearchData(e.target.value)}
             />
+            {isLoading ? <p>Loading...</p> : (
             <ul>
-            {filterList.map((name, id) => {
-                
-                return (
-                    <li key={id}>
-                        <Link to={`/PlanetList/${name}`}>{name}</Link>
-                    </li>
-                );
-            })}
+                {filterList.map((name, id) => {
+                    return (
+                        <li key={id}>
+                            <Link to={`/PlanetList/${name}`}>{name}</Link>
+                        </li>
+                    );
+                })}
             </ul>
+            )}
             <Link to="../">Back</Link>
         </>
     );

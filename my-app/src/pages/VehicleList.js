@@ -12,6 +12,7 @@ const getFilterList = (searchData, vehicleList) =>{
 export default function VehicleList() {
     const[searchData, setSearchData] = useState('')
     const [vehicleList, setVehicleList] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     let listname = [];
     useEffect(() => {
         const fetchData = async () => {
@@ -22,7 +23,8 @@ export default function VehicleList() {
                     if (i != 3)
                     listname[i] = data.results[i].name;
                 }
-                setVehicleList(listname)
+                setVehicleList(listname);
+                setIsLoading(false);
             } catch(error){
                 console.error(error);
             }
@@ -40,15 +42,17 @@ export default function VehicleList() {
             value={searchData} 
             onChange={(e) => setSearchData(e.target.value)}
             />
+            {isLoading ? <p>Loading...</p> : (
             <ul>
-            {filterList.map((name, id) => {
-                return (
-                    <li key={id}>
-                        <Link to={`/VehicleList/${name}`}>{name}</Link>
-                    </li>
-                );
-            })}
+                {filterList.map((name, id) => {
+                    return (
+                        <li key={id}>
+                            <Link to={`/VehicleList/${name}`}>{name}</Link>
+                        </li>
+                    );
+                })}
             </ul>
+            )}
             <Link to="../">Back</Link>
         </>
     );
