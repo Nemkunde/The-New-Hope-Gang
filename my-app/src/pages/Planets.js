@@ -12,7 +12,6 @@ export default function Planets() {
         const data = await response.json();
         list = data.results
         setPlanet(list[0]);
-        console.log(data)
       } catch (error) {
         console.error(error);
       }
@@ -24,7 +23,7 @@ export default function Planets() {
         <>
         <ul>
             <li>
-                <p>Name: {planet.name}</p>
+                <h2>Name: {planet.name}</h2>
             </li>
             <li>
                 <p>Rotation period: {planet.rotation_period}</p>

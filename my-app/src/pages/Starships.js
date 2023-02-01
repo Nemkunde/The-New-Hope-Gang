@@ -12,7 +12,6 @@ export default function Starships() {
         const data = await response.json();
         list = data.results
         setStarships(list[0]);
-        console.log(data)
       } catch (error) {
         console.error(error);
       }
@@ -24,7 +23,7 @@ export default function Starships() {
         <>
         <ul>
             <li>
-                <p>Name: {starship.name}</p>
+                <h2>Name: {starship.name}</h2>
             </li>
             <li>
                 <p>Model: {starship.model}</p>

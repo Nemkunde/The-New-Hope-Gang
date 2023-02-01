@@ -12,7 +12,6 @@ export default function Films() {
         const data = await response.json();
         list = data.results
         setFilm(list[0]);
-        console.log(data)
       } catch (error) {
         console.error(error);
       }
@@ -24,7 +23,7 @@ export default function Films() {
         <>
         <ul>
             <li>
-                <p>Title: {film.title}</p>
+                <h2>Title: {film.title}</h2>
             </li>
             <li>
                 <p>Episode id: {film.episode_id}</p>

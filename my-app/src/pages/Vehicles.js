@@ -13,7 +13,6 @@ export default function Vehicles() {
         const data = await response.json();
         list = data.results
         setVehicles(list[0]);
-        console.log(data)
       } catch (error) {
         console.error(error);
       }
@@ -25,7 +24,7 @@ export default function Vehicles() {
         <>
         <ul>
             <li>
-                <p>Name: {vehicle.name}</p>
+                <h2>Name: {vehicle.name}</h2>
             </li>
             <li>
                 <p>Model: {vehicle.model}</p>

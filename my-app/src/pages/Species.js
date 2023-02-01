@@ -12,7 +12,6 @@ export default function Species() {
         const data = await response.json();
         list = data.results
         setSpecies(list[0]);
-        console.log(data)
       } catch (error) {
         console.error(error);
       }
@@ -24,7 +23,7 @@ export default function Species() {
         <>
         <ul>
             <li>
-                <p>Name: {species.name}</p>
+                <h2>Name: {species.name}</h2>
             </li>
             <li>
                 <p>Classification: {species.classification}</p>

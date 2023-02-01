@@ -26,8 +26,6 @@ export default function FilmList() {
         };
         fetchData();
     }, []);
-    console.log(listname)
-
     const filterList = getFilterList(searchData, filmList)
 
     return (
