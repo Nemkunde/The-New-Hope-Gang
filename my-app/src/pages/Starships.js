@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 
 export default function Starships() {
   const [starship, setStarships] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   const { name} = useParams();
   let list = []
   useEffect(() => {
@@ -12,6 +13,7 @@ export default function Starships() {
         const data = await response.json();
         list = data.results
         setStarships(list[0]);
+        setIsLoading(false);
       } catch (error) {
         console.error(error);
       }
@@ -21,6 +23,7 @@ export default function Starships() {
 
     return (
         <>
+        {isLoading ? <p>Loading...</p> : (
         <ul>
             <li>
                 <h2>Name: {starship.name}</h2>
@@ -54,6 +57,7 @@ export default function Starships() {
                 <p>Consumables: {starship.consumables}</p>
             </li>
         </ul>
+        )}
         <Link to="../StarshipList">Back</Link>
         </>
     );
