@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 
 export default function Species() {
   const [species, setSpecies] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   const { name } = useParams();
   let list = []
   useEffect(() => {
@@ -12,7 +13,7 @@ export default function Species() {
         const data = await response.json();
         list = data.results
         setSpecies(list[0]);
-        console.log(data)
+        setIsLoading(false);
       } catch (error) {
         console.error(error);
       }
@@ -22,9 +23,10 @@ export default function Species() {
 
     return (
         <>
-        <ul className='Characteristics'>
+        {isLoading ? <p>Loading...</p> : (
+        <ul>
             <li>
-                <p>Name: {species.name}</p>
+                <h2>Name: {species.name}</h2>
             </li>
             <li>
                 <p>Classification: {species.classification}</p>
@@ -51,6 +53,7 @@ export default function Species() {
                 <p>Language: {species.language}</p>
             </li>
         </ul>
+        )}
         <Link to="../SpeciesList">Back</Link>
         </>
     );

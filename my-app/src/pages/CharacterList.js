@@ -13,6 +13,7 @@ export default function CharactersList() {
     
     const [searchData, setSearchData] = useState('')
     const [characterList, setCharacterList] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     let listname = [];
     useEffect(() => {
@@ -24,6 +25,7 @@ export default function CharactersList() {
                     listname[i] = data.results[i].name;
                 }
                 setCharacterList(listname)
+                setIsLoading(false);
             } catch(error){
                 console.error(error);
             }
@@ -42,16 +44,17 @@ export default function CharactersList() {
             value={searchData} 
             onChange={(e) => setSearchData(e.target.value)}
             />
-            <ul className='C'>
-            {filterList.map((name, id) => {
-                
-                return (
-                    <li className='D' key={id}>
-                        <Link to = {`/CharacterList/${name}`} style={{ textDecoration: 'none' }}>{name}</Link>
-                    </li>
-                );
-            })}
+            {isLoading ? <p>Loading...</p> : (
+            <ul>
+                {filterList.map((name, id) => {
+                    return (
+                        <li key={id}>
+                            <Link to={`/CharacterList/${name}`}style={{ textDecoration: 'none' }}>{name}</Link>
+                        </li>
+                    );
+                })}
             </ul>
+            )}
             <Link to="../"style={{ textDecoration: 'none' }}>Back</Link>
         </>
     );

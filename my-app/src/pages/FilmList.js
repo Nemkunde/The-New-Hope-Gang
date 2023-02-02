@@ -10,6 +10,7 @@ const getFilterList = (searchData, filmList) =>{
 export default function FilmList() {
     const[searchData, setSearchData] = useState('')
     const [filmList, setFilmList] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     let listname = [];
     useEffect(() => {
         const fetchData = async () => {
@@ -19,15 +20,14 @@ export default function FilmList() {
                 for (let i = 0; i < 6; i++) {
                     listname[i] = data.results[i].title;
                 }
-                setFilmList(listname)
+                setFilmList(listname);
+                setIsLoading(false);
             } catch(error){
                 console.error(error);
             }
         };
         fetchData();
     }, []);
-    console.log(listname)
-
     const filterList = getFilterList(searchData, filmList)
 
     return (
@@ -40,18 +40,17 @@ export default function FilmList() {
             value={searchData} 
             onChange={(e) => setSearchData(e.target.value)}
             />
+            {isLoading ? <p>Loading...</p> : (
             <ul>
-            {filterList.map((name, id) => {
-                
-                return (
-                    <li key={id}>
-                        <Link to={`/FilmList/${name}`}>{name}</Link>
-                    </li>
-                );
-            })}
-
-       
+                {filterList.map((name, id) => {
+                    return (
+                        <li key={id}>
+                            <Link to={`/FilmList/${name}`}>{name}</Link>
+                        </li>
+                    );
+                })}
             </ul>
+            )}
             <Link to="../">Back</Link>
         </>
     );

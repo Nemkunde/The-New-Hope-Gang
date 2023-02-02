@@ -11,6 +11,7 @@ const getFilterList = (searchData, speciesList) =>{
 export default function SpeciesList() {
     const[searchData, setSearchData] = useState('')
     const [speciesList, setSpeciesList] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     let listname = [];
     useEffect(() => {
         const fetchData = async () => {
@@ -20,7 +21,8 @@ export default function SpeciesList() {
                 for (let i = 0; i < 10; i++) {
                     listname[i] = data.results[i].name;
                 }
-                setSpeciesList(listname)
+                setSpeciesList(listname);
+                setIsLoading(false);
             } catch(error){
                 console.error(error);
             }
@@ -39,16 +41,17 @@ export default function SpeciesList() {
             value={searchData} 
             onChange={(e) => setSearchData(e.target.value)}
             />
+            {isLoading ? <p>Loading...</p> : (
             <ul>
-            {filterList.map((name, id) => {
-                
-                return (
-                    <li key={id}>
-                        <Link to={`/SpeciesList/${name}`}>{name}</Link>
-                    </li>
-                );
-            })}
+                {filterList.map((name, id) => {
+                    return (
+                        <li key={id}>
+                            <Link to={`/SpeciesList/${name}`}>{name}</Link>
+                        </li>
+                    );
+                })}
             </ul>
+            )}
             <Link to="../">Back</Link>
         </>
     );

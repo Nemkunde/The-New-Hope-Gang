@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 
 export default function Vehicles() {
   const [vehicle, setVehicles] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   const {name } = useParams();
   let list = []
 
@@ -13,7 +14,7 @@ export default function Vehicles() {
         const data = await response.json();
         list = data.results
         setVehicles(list[0]);
-        console.log(data)
+        setIsLoading(false);
       } catch (error) {
         console.error(error);
       }
@@ -23,9 +24,10 @@ export default function Vehicles() {
 
     return (
         <>
-        <ul className='Characteristics'>
+        {isLoading ? <p>Loading...</p> : (
+        <ul>
             <li>
-                <p>Name: {vehicle.name}</p>
+                <h2>Name: {vehicle.name}</h2>
             </li>
             <li>
                 <p>Model: {vehicle.model}</p>
@@ -55,6 +57,7 @@ export default function Vehicles() {
                 <p>Consumables: {vehicle.consumables}</p>
             </li>
         </ul>
+        )}
         <Link to="../VehicleList">Back</Link>
         </>
     );

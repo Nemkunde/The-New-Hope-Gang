@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 
 export default function Planets() {
   const [planet, setPlanet] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   const { name } = useParams();
   let list = []
   useEffect(() => {
@@ -12,7 +13,7 @@ export default function Planets() {
         const data = await response.json();
         list = data.results
         setPlanet(list[0]);
-        console.log(data)
+        setIsLoading(false);
       } catch (error) {
         console.error(error);
       }
@@ -22,9 +23,10 @@ export default function Planets() {
 
     return (
         <>
-        <ul className='Characteristics'>
+        {isLoading ? <p>Loading...</p> : (
+        <ul>
             <li>
-                <p>Name: {planet.name}</p>
+                <h2>Name: {planet.name}</h2>
             </li>
             <li>
                 <p>Rotation period: {planet.rotation_period}</p>
@@ -48,6 +50,7 @@ export default function Planets() {
                 <p>Population: {planet.population}</p>
             </li>
         </ul>
+        )}
         <Link to="../PlanetList">Back</Link>
         </>
     );
