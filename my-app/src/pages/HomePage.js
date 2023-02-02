@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Characters from '../componens/Character'
+import Data from '../componens/Data'
 const getFilterList = (searchData, characterList) =>{
     if (!searchData){ 
         return characterList;
@@ -12,12 +12,24 @@ const HomePage = () => {
     const [clickedName, setclickedname] = useState('')
     const [isLoading, setIsLoading] = useState(true);
     let listname = [];
-    let category = 'people'
+    let category = 'films'
     useEffect(() => {
         const fetchData = async () => {
-            if(category == 'people'){
+            if(category == 'films'){
                 try {
-                    const response = await fetch('https://swapi.dev/api/people/');
+                    const response = await fetch('https://swapi.dev/api/' + category);
+                    const data = await response.json();
+                    for (let i = 0; i < 6; i++) {
+                        listname[i] = data.results[i].title;
+                    }
+                    setCategoryList(listname)
+                    setIsLoading(false);
+                } catch(error){
+                    console.error(error);
+                }
+            }else{
+                try {
+                    const response = await fetch('https://swapi.dev/api/' + category);
                     const data = await response.json();
                     for (let i = 0; i < 10; i++) {
                         listname[i] = data.results[i].name;
@@ -41,8 +53,7 @@ const HomePage = () => {
             value={searchData} 
             onChange={(e) => setSearchData(e.target.value)}
             />
-            {category == 'people' &&
-                isLoading ? <p>Loading...</p> : (
+            {isLoading ? <p>Loading...</p> : (
                 <ul>
                     {filterList.map((name, id) => {
                         return (
@@ -55,7 +66,7 @@ const HomePage = () => {
                 )
             }
             {clickedName != '' &&
-                <Characters name={clickedName}></Characters>
+                <Data name={clickedName} category={category}></Data>
             }
     </>;
 };

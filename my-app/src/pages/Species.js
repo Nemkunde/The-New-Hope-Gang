@@ -23,37 +23,7 @@ export default function Species() {
 
     return (
         <>
-        {isLoading ? <p>Loading...</p> : (
-        <ul>
-            <li>
-                <h2>Name: {species.name}</h2>
-            </li>
-            <li>
-                <p>Classification: {species.classification}</p>
-            </li>
-            <li>
-                <p>Designation: {species.designation}</p>
-            </li>
-            <li>
-                <p>Average height: {species.average_height}</p>
-            </li>
-            <li>
-                <p>Skin colors: {species.skin_colors}</p>
-            </li>
-            <li>
-                <p>Hair colors: {species.hair_colors}</p>
-            </li>
-            <li>
-                <p>Eye colors: {species.eye_colors}</p>
-            </li>
-            <li>
-                <p>Average lifespan: {species.average_lifespan}</p>
-            </li>
-            <li>
-                <p>Language: {species.language}</p>
-            </li>
-        </ul>
-        )}
+        
         <Link to="../SpeciesList">Back</Link>
         </>
     );
