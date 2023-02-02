@@ -9,8 +9,6 @@ const getFilterList = (searchData, characterList) =>{
 }
 
 export default function CharactersList() {
-
-    
     const [searchData, setSearchData] = useState('')
     const [characterList, setCharacterList] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
