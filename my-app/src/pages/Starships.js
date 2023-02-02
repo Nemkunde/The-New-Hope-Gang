@@ -22,7 +22,7 @@ export default function Starships() {
 
     return (
         <>
-        <ul>
+        <ul className='Characteristics'>
             <li>
                 <p>Name: {starship.name}</p>
             </li>

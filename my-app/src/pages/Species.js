@@ -22,7 +22,7 @@ export default function Species() {
 
     return (
         <>
-        <ul>
+        <ul className='Characteristics'>
             <li>
                 <p>Name: {species.name}</p>
             </li>

@@ -1,8 +1,9 @@
 import React from 'react'
+
 const HomePage = () => {
 
     return <>
-        <h1>Home</h1><p>Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim
+        <h1 className='home-title'>Home</h1><p className='home-text'>Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim
         labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi
         animcupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est
         aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia

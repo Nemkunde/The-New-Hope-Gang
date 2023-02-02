@@ -23,7 +23,7 @@ export default function Vehicles() {
 
     return (
         <>
-        <ul>
+        <ul className='Characteristics'>
             <li>
                 <p>Name: {vehicle.name}</p>
             </li>

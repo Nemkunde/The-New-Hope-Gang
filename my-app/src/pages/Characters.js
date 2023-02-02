@@ -25,7 +25,7 @@ export default function Characters() {
   }, [name]);
   return (
     <>
-      <ul>
+      <ul className='Characteristics'>
         <li>
           <h2>Name: {character.name}</h2>
         </li>
@@ -60,7 +60,7 @@ export default function Characters() {
           <p>Gravity: {planet.gravity}</p>
         </li>
       </ul>
-      <Link to="../CharacterList">Back</Link>
+      <Link className= "Characteristics"to="../CharacterList">Back</Link>
     </>
   );
 }

@@ -22,7 +22,7 @@ export default function Planets() {
 
     return (
         <>
-        <ul>
+        <ul className='Characteristics'>
             <li>
                 <p>Name: {planet.name}</p>
             </li>

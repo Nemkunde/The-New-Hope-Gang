@@ -42,17 +42,17 @@ export default function CharactersList() {
             value={searchData} 
             onChange={(e) => setSearchData(e.target.value)}
             />
-            <ul>
+            <ul className='C'>
             {filterList.map((name, id) => {
                 
                 return (
-                    <li key={id}>
-                        <Link to={`/CharacterList/${name}`}>{name}</Link>
+                    <li className='D' key={id}>
+                        <Link to = {`/CharacterList/${name}`} style={{ textDecoration: 'none' }}>{name}</Link>
                     </li>
                 );
             })}
             </ul>
-            <Link to="../">Back</Link>
+            <Link to="../"style={{ textDecoration: 'none' }}>Back</Link>
         </>
     );
 }

@@ -1,34 +1,36 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import React from 'react'
 const Layout = () => {
     return (
-        <>
-            <nav>
-                <ul>
+        <> <header>
+            <nav className="nav">
+                <a href="/" className= "nav-title">Star Wars API</a>
+                <ul className="nav-categories">
                     <li>
-                        <Link to="/">HomePage</Link>
+                        <NavLink className= "nav-bar-link" to="/">Home</NavLink>
                     </li>
                     <li>
-                        <Link to="/CharacterList">Characters</Link>
+                        <NavLink className= "nav-bar-link" to="/CharacterList" >Characters</NavLink>
                     </li>
                     <li>
-                        <Link to= "/PlanetList">Planets</Link>
+                        <NavLink className= "nav-bar-link" to= "/PlanetList" >Planets</NavLink>
                     </li>
                     <li>
-                        <Link to= "/SpeciesList">Species</Link>
+                        <NavLink className= "nav-bar-link" to= "/SpeciesList">Species</NavLink>
                     </li>
                     <li>
-                        <Link to= "/StarshipList">Starships</Link>
+                        <NavLink className= "nav-bar-link" to= "/StarshipList" >Starships</NavLink>
                     </li>
                     <li>
-                        <Link to= "/FilmList">Films</Link>
+                        <NavLink className= "nav-bar-link" to= "/FilmList" >Films</NavLink>
                     </li>
                     <li>
-                        <Link to= "/VehicleList">Vehicles</Link>
+                        <NavLink className= "nav-bar-link" to= "/VehicleList" >Vehicles</NavLink>
                     </li>
                 </ul>
             </nav>
-            <Outlet />
+        </header>
+        <Outlet />
         </>
     )
 };

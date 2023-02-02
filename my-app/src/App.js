@@ -29,7 +29,7 @@ function App() {
           <Route path="SpeciesList" element={<SpeciesList />} />
           <Route path="SpeciesList/:name" element={<Species />} />
           <Route path="StarshipList" element={<StarshipList />} />
-          <Route path="StarshipList/name" element={<Starships />} />
+          <Route path="StarshipList/:name" element={<Starships />} />
           <Route path="FilmList" element={<FilmList />} />
           <Route path="FilmList/:title" element={<Films />} />
           <Route path="VehicleList" element={<VehicleList />} />

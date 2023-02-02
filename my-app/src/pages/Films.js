@@ -22,7 +22,7 @@ export default function Films() {
 
     return (
         <>
-        <ul>
+        <ul className='Characteristics'>
             <li>
                 <p>Title: {film.title}</p>
             </li>
