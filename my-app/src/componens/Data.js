@@ -6,6 +6,7 @@ export default function Data(props) {
   const [isLoading, setIsLoading] = useState(true);
   let list = []
   useEffect(() => {
+    setIsLoading(true)
     const fetchData = async () => {
       try {
         const response = await fetch(`https://swapi.dev/api/${props.category}/?search=${props.name}`);
