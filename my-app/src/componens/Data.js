@@ -30,7 +30,7 @@ export default function Data(props) {
     return (
       <>
       {isLoading ? <p>Loading...</p> : (
-          <ul>
+          <ul className='categoryInfoList'>
             <li>
               <h2>Name: {DataList.name}</h2>
             </li>
@@ -89,7 +89,7 @@ export default function Data(props) {
     return(
       <>
       {isLoading ? <p>Loading...</p> : (
-          <ul>
+          <ul className='categoryInfoList'>
             <li>
                 <h2>Name: {DataList.name}</h2>
             </li>
@@ -126,7 +126,7 @@ export default function Data(props) {
   else if(props.category === 'films'){
     return(
       <>
-      <ul>
+      <ul className='categoryInfoList'>
         <li>
             <h2>Title: {DataList.title}</h2>
         </li>
@@ -156,7 +156,7 @@ export default function Data(props) {
     return(
       <>
       {isLoading ? <p>Loading...</p> : (
-        <ul>
+        <ul className='categoryInfoList'>
             <li>
                 <h2>Name: {DataList.name}</h2>
             </li>
@@ -190,7 +190,7 @@ export default function Data(props) {
     return(
       <>
        {isLoading ? <p>Loading...</p> : (
-        <ul>
+        <ul className='categoryInfoList'>
             <li>
                 <h2>Name: {DataList.name}</h2>
             </li>
@@ -231,7 +231,7 @@ export default function Data(props) {
     return(
       <>
       {isLoading ? <p>Loading...</p> : (
-        <ul>
+        <ul className='categoryInfoList'>
             <li>
                 <h2>Name: {DataList.name}</h2>
             </li>
