@@ -9,7 +9,7 @@ body {
 body {
   background-color: rgb(134, 126, 126);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  
+  text-align: center;
 }
 
 .nav {
@@ -34,12 +34,11 @@ body {
 .nav-title {
   text-decoration: none;
   font-size: 3em;
-  
+  text-align: center;
+  color:gold;
 }
 
-.nav-bar-link:hover {
-  color: blueviolet;
-}
+
 
 .nav-bar-link {
   text-decoration: none;
@@ -63,47 +62,3 @@ body {
   text-align: center;
 
 }
-/*body {
-    background-color: #282c34;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-  }
-
- li {
-    list-style: none;
-    display: flex;
-    line-height: 2em;
-    padding: 0 20px;
-    color: rgba(242, 242, 7, 0.943);
-  }
-
-  .nav-categories {
-   display: inline-block;
-
-  /*justify-content: flex-end;*/
-
-  /*padding: 20px 50px;
-  box-shadow: 0 1px 8px #ddd;*/
-
-  
-
-  
-
-  /*.Characteristics {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .D {
-    display: flex;
-    justify-content: space-evenly;
-  }
-
-  .Layout {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-between;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 10 px;
-  }*/

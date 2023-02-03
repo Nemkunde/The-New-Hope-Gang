@@ -13,7 +13,7 @@ export default function Data(props) {
         const data = await response.json();
         list = data.results
         setDataList(list[0]);
-        if(props.category === 'people'){
+        if(props.category === 'People'){
           const planetResponse = await fetch(list[0].homeworld);
           const planetData = await planetResponse.json();
           setPlanet(planetData);
