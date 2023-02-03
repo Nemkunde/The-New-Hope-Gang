@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Data from '../components/Data'
-let listname = [];
 const getFilterList = (searchData, categoryList) =>{
     if (!searchData){ 
         return categoryList;
