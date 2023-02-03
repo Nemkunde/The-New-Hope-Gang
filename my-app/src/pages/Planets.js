@@ -23,34 +23,7 @@ export default function Planets() {
 
     return (
         <>
-        {isLoading ? <p>Loading...</p> : (
-        <ul>
-            <li>
-                <h2>Name: {planet.name}</h2>
-            </li>
-            <li>
-                <p>Rotation period: {planet.rotation_period}</p>
-            </li>
-            <li>
-                <p>Orbital period: {planet.orbital_period}</p>
-            </li>
-            <li>
-                <p>Diameter: {planet.diameter}</p>
-            </li>
-            <li>
-                <p>Climate: {planet.climate}</p>
-            </li>
-            <li>
-                <p>Gravity: {planet.gravity}</p>
-            </li>
-            <li>
-                <p>Terrain: {planet.terrain}</p>
-            </li>
-            <li>
-                <p>Population: {planet.population}</p>
-            </li>
-        </ul>
-        )}
+        
         <Link to="../PlanetList">Back</Link>
         </>
     );

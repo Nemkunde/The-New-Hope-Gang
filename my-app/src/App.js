@@ -12,8 +12,6 @@ import StarshipList from "./pages/StarshipList";
 import Starships from "./pages/Starships";
 import FilmList from "./pages/FilmList";
 import Films from "./pages/Films";
-import VehicleList from "./pages/VehicleList";
-import Vehicles from "./pages/Vehicles";
 import Notfound from './pages/Notfound';
 
 function App() {
@@ -32,8 +30,6 @@ function App() {
           <Route path="StarshipList/:name" element={<Starships />} />
           <Route path="FilmList" element={<FilmList />} />
           <Route path="FilmList/:title" element={<Films />} />
-          <Route path="VehicleList" element={<VehicleList />} />
-          <Route path="VehicleList/:name" element={<Vehicles />} />
           <Route path="*" element={<Notfound />} />
         </Route>
       </Routes>

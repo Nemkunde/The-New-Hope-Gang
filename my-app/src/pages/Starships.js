@@ -23,41 +23,7 @@ export default function Starships() {
 
     return (
         <>
-        {isLoading ? <p>Loading...</p> : (
-        <ul>
-            <li>
-                <h2>Name: {starship.name}</h2>
-            </li>
-            <li>
-                <p>Model: {starship.model}</p>
-            </li>
-            <li>
-                <p>Manufacturer: {starship.manufacturer}</p>
-            </li>
-            <li>
-                <p>Cost in credits: {starship.cost_in_credits}</p>
-            </li>
-            <li>
-                <p>Length: {starship.length}</p>
-            </li>
-
-            <li>
-                <p>Max atmosphering speed: {starship.max_atmosphering_speed}</p>
-            </li>
-            <li>
-                <p>Crew: {starship.crew}</p>
-            </li>
-            <li>
-                <p>Passengers: {starship.passengers}</p>
-            </li>
-            <li>
-                <p>Cargo capacity: {starship.cargo_capacity}</p>
-            </li>
-            <li>
-                <p>Consumables: {starship.consumables}</p>
-            </li>
-        </ul>
-        )}
+       
         <Link to="../StarshipList">Back</Link>
         </>
     );

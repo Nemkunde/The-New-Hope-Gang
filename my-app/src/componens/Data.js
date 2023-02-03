@@ -12,7 +12,7 @@ export default function Data(props) {
         const data = await response.json();
         list = data.results
         setDataList(list[0]);
-        if(props.category == 'person'){
+        if(props.category === 'people'){
           const planetResponse = await fetch(list[0].homeworld);
           const planetData = await planetResponse.json();
           setPlanet(planetData);
@@ -25,7 +25,7 @@ export default function Data(props) {
     fetchData();
   }, [props.name]);
   console.log(props.category)
-  if(props.category == 'person'){
+  if(props.category === 'people'){
     return (
       <>
       {isLoading ? <p>Loading...</p> : (
@@ -84,7 +84,7 @@ export default function Data(props) {
       </>
     )
   }
-  else if(props.category == 'species'){
+  else if(props.category === 'species'){
     return(
       <>
       {isLoading ? <p>Loading...</p> : (
@@ -122,7 +122,7 @@ export default function Data(props) {
       </>
     )
   }
-  else if(props.category == 'films'){
+  else if(props.category === 'films'){
     return(
       <>
       <ul>
@@ -151,21 +151,118 @@ export default function Data(props) {
       </>
     )
   }
-  else if(props.category == 'species'){
+  else if(props.category === 'planets'){
     return(
       <>
+      {isLoading ? <p>Loading...</p> : (
+        <ul>
+            <li>
+                <h2>Name: {DataList.name}</h2>
+            </li>
+            <li>
+                <p>Rotation period: {DataList.rotation_period}</p>
+            </li>
+            <li>
+                <p>Orbital period: {DataList.orbital_period}</p>
+            </li>
+            <li>
+                <p>Diameter: {DataList.diameter}</p>
+            </li>
+            <li>
+                <p>Climate: {DataList.climate}</p>
+            </li>
+            <li>
+                <p>Gravity: {DataList.gravity}</p>
+            </li>
+            <li>
+                <p>Terrain: {DataList.terrain}</p>
+            </li>
+            <li>
+                <p>Population: {DataList.population}</p>
+            </li>
+        </ul>
+      )}
       </>
     )
   }
-  else if(props.category == 'species'){
+  else if(props.category === 'starships'){
     return(
       <>
+       {isLoading ? <p>Loading...</p> : (
+        <ul>
+            <li>
+                <h2>Name: {DataList.name}</h2>
+            </li>
+            <li>
+                <p>Model: {DataList.model}</p>
+            </li>
+            <li>
+                <p>Manufacturer: {DataList.manufacturer}</p>
+            </li>
+            <li>
+                <p>Cost in credits: {DataList.cost_in_credits}</p>
+            </li>
+            <li>
+                <p>Length: {DataList.length}</p>
+            </li>
+
+            <li>
+                <p>Max atmosphering speed: {DataList.max_atmosphering_speed}</p>
+            </li>
+            <li>
+                <p>Crew: {DataList.crew}</p>
+            </li>
+            <li>
+                <p>Passengers: {DataList.passengers}</p>
+            </li>
+            <li>
+                <p>Cargo capacity: {DataList.cargo_capacity}</p>
+            </li>
+            <li>
+                <p>Consumables: {DataList.consumables}</p>
+            </li>
+        </ul>
+        )}
       </>
     )
   }
-  else if(props.category == 'species'){
+  else if(props.category === 'vehicles'){
     return(
       <>
+      {isLoading ? <p>Loading...</p> : (
+        <ul>
+            <li>
+                <h2>Name: {DataList.name}</h2>
+            </li>
+            <li>
+                <p>Model: {DataList.model}</p>
+            </li>
+            <li>
+                <p>Manufacturer: {DataList.manufacturer}</p>
+            </li>
+            <li>
+                <p>Cost in credits: {DataList.cost_in_credits}</p>
+            </li>
+            <li>
+                <p>Length: {DataList.length}</p>
+            </li>
+            <li>
+                <p>Max atmosphering speed: {DataList.max_atmosphering_speed}</p>
+            </li>
+            <li>
+                <p>Crew: {DataList.crew}</p>
+            </li>
+            <li>
+                <p>Passengers: {DataList.passengers}</p>
+            </li>
+            <li>
+                <p>Cargo capacity: {DataList.cargo_capacity}</p>
+            </li>
+            <li>
+                <p>Consumables: {DataList.consumables}</p>
+            </li>
+        </ul>
+        )}
       </>
     )
   };
